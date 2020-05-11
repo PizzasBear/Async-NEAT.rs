@@ -1,4 +1,4 @@
-#![allow(dead_code,unused_imports)]
+#![allow(dead_code, unused_imports)]
 
 mod neat;
 
@@ -7,6 +7,5 @@ use std::io;
 
 #[tokio::main]
 async fn main() -> io::Result<()> {
-
     Ok(())
 }
