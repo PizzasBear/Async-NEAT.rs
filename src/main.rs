@@ -2,7 +2,7 @@
 
 mod neat;
 
-use std::io;
+use tokio::io;
 // use tokio::prelude::*
 
 #[tokio::main]
