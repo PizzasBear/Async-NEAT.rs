@@ -4,6 +4,12 @@ pub(super) struct Links {
     pub weights: Vec<f64>,
 }
 
+impl Links {
+    pub fn len(&self) -> usize {
+        self.innovs.len()
+    }
+}
+
 impl Clone for Links {
     fn clone(&self) -> Self {
         Self {

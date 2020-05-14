@@ -1,10 +1,6 @@
 use serde::Deserialize;
 use std::{future::Future, path::Path};
-use tokio::{
-    prelude::*,
-    fs::File,
-    io,
-};
+use tokio::{fs::File, io, prelude::*};
 
 use super::Net;
 
@@ -21,6 +17,7 @@ where
 
     pub eval_fn: fn(&Net) -> T,
     pub init_weight_fn: fn() -> T,
+    pub mutate_weight_fn: fn(f64) -> T,
 }
 
 impl<T> Config<T>
@@ -43,6 +40,7 @@ where
     pub async fn new(
         eval_fn: fn(&Net) -> T,
         init_weight_fn: fn() -> T,
+        mutate_weight_fn: fn(f64) -> T,
         path: impl AsRef<Path>,
     ) -> io::Result<Self> {
         let mut file = File::open(path).await?;
@@ -58,6 +56,7 @@ where
             size: raw.size,
             eval_fn: eval_fn,
             init_weight_fn: init_weight_fn,
+            mutate_weight_fn: mutate_weight_fn,
         })
     }
 }

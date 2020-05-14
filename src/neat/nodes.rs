@@ -5,6 +5,12 @@ pub(super) struct Nodes {
     pub indices: Vec<usize>,
 }
 
+impl Nodes {
+    pub fn len(&self) -> usize {
+        self.indices.len()
+    }
+}
+
 impl Clone for Nodes {
     fn clone(&self) -> Self {
         Self {

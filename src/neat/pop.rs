@@ -17,16 +17,16 @@ impl Pop {
         let mut out = Self {
             innovs: Innovs {
                 offset: init_nodes_count,
-                from_nodes: Vec::with_capacity(init_links_count),
-                to_nodes: Vec::with_capacity(init_links_count),
+                from_innovs: Vec::with_capacity(init_links_count),
+                to_innovs: Vec::with_capacity(init_links_count),
             },
             nets: Vec::with_capacity(conf.size),
         };
 
         for i in (input_size + 1)..init_nodes_count {
             for j in 0..(input_size + 1) {
-                out.innovs.from_nodes.push(j);
-                out.innovs.to_nodes.push(i);
+                out.innovs.from_innovs.push(j);
+                out.innovs.to_innovs.push(i);
             }
         }
 
